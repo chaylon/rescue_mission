@@ -1,0 +1,14 @@
+<p>Title: <%= @question.title %></p>
+<p>Details: <%= @question.details %></p>
+<p>Answers: </p>
+<ul>
+  <% @answers.each do |answer| %>
+    <li><%= answer.body %></li>
+  <% end %>
+</ul>
+
+<%= render :partial => 'answers/form' %>
+
+<p><%= link_to 'Back', questions_path %></p>
+<p><%= link_to 'Delete', @question, method: :delete, data: {confirm: 'Are you sure?'} %></p>
+<p><%= link_to 'Edit Question', edit_question_path(@question) %></p>
